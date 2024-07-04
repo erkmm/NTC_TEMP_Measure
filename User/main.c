@@ -41,7 +41,7 @@ volatile uint32_t i32ConversionData;
 
 void SYS_Init(void)
 {
-    //change1
+    //
 	/* Unlock protected registers */
     SYS_UnlockReg();
 
