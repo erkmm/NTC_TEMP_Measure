@@ -28,7 +28,7 @@ void UART0_Init(void);
 void ADC_FunctionTest();
 void ADC_IRQHandler(void);
 double NTC_Get_Temp();
-
+//changed2
 
 /*---------------------------------------------------------------------------------------------------------*/
 /* Define global variables and constants                                                                   */
