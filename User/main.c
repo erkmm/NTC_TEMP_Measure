@@ -41,7 +41,8 @@ volatile uint32_t i32ConversionData;
 
 void SYS_Init(void)
 {
-    /* Unlock protected registers */
+    //change1
+	/* Unlock protected registers */
     SYS_UnlockReg();
 
 // ------------------------
@@ -139,6 +140,11 @@ void ADC_IRQHandler(void)
     ADC_CLR_INT_FLAG(ADC, ADC_ADF_INT); /* Clear the A/D interrupt flag */
 }
 
+
+void TimeDelay(){
+	for (int t=0;t < 1000000;t++);
+}
+
 double NTC_Get_Temp(){
     double R0 = 10000.0;
     double B = 3435.0;
@@ -157,18 +163,14 @@ double NTC_Get_Temp(){
 	float R= R0/v2;
 
 		printf("\n\n");
-		printf("\nAdc     : %d",i32ConversionData);
-		printf("\nV2      : %.4f",(float) v2);
-	    printf("\nfel     : %.4f",(float) fel);
-	    printf("\nR       : %.4f",(float) R);
-	    printf("\nResult  : %.2f",(float) result);
-		printf("\nRoomTemp: %.2f C" ,(float) result-273);
+		printf("\n ADC     : %d",i32ConversionData);
+		printf("\n V2      : %.4f",(float) v2);
+	    printf("\n fel     : %.4f",(float) fel);
+	    printf("\n R       : %.4f",(float) R);
+	    printf("\n Result  : %.2f",(float) result);
+		printf("\n RoomTemp: %.2f C",(float) result-273);
 
     return result;
-}
-
-void TimeDelay(){
-	for (int t=0;t < 1000000;t++);
 }
 
 int main()
